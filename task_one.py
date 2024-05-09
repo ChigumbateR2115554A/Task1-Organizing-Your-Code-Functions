@@ -1,18 +1,14 @@
-def plot_data(my_file):
-    '''
-    This function plots a scatterplot provided with a coordinate text file path 
 
-    Parameters
-    ----------
-    my_file : STRING 
-        Required path to the file with coordinates in text format 
+import pandas as pd
+import matplotlib.pyplot as plt
 
-    Returns
-    ---------
-    Scatterplot 
-    '''
-    scatter_plot = None 
-    """
-    ==> Write your code here <==
-    """
-    return scatter_plot 
+dataset = pd.read_csv('x_y_coordinates.txt', sep=',', header=None, names=['x', 'y'])
+
+print("Data structure:", dataset.columns.tolist())
+figure, ax = plt.subplots()
+ax.scatter(dataset['x'], dataset['y'])
+ax.set_title('Coordinate Scatter Plot')
+ax.set_xlabel('X Axis')
+ax.set_ylabel('Y Axis')
+ax.grid(True)
+plt.show()
